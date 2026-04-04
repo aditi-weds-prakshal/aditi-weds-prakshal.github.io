@@ -1034,11 +1034,22 @@ section {
 
   // Auto-play music on first user interaction
 
-  document.addEventListener('click', function () {
+  // document.addEventListener('click', function () {
+  //     const audio = document.getElementById('bgMusic');
+  //     if (audio.paused) {
+  //       audio.muted = false;
+  //       audio.play();
+  //     }
+  //   });
+
+  let played = false;
+
+    window.addEventListener('scroll', function () {
       const audio = document.getElementById('bgMusic');
-      if (audio.paused) {
+      if (!played) {
         audio.muted = false;
         audio.play();
+        played = true; // play only once, don't restart on every scroll
       }
     });
 
